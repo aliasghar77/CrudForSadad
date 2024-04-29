@@ -1,0 +1,33 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">RegisterDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var i in Model)
+        {
+            <tr>
+                <th scope="row">@i.UserId</th>
+                <td>@i.Email</td>
+                <td>@i.Password</td>
+                <td>@i.RegisterDate</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-action="Delete" asp-route-UserId="@i.UserId">حذف</a>
+
+                    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-UserId="@i.UserId">ویرایش</a>
+
+                </td>
+            </tr>
+        }
+       
+    </tbody>
+</table>
